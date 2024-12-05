@@ -1,0 +1,71 @@
+From 2021-08-13, GitHub is no longer accepting account passwords when authenticating Git operations. You need to add a PAT (Personal Access Token) instead or SSH keys for authentication.
+
+
+1. Using PAT
+############
+
+Create Personal Access Token on GitHub:
+---------------------------------------
+From your GitHub account, go to Settings → Developer Settings → Personal Access Token → Tokens (classic) → Generate New Token (Give your password) → Fillup the form → click Generate token → Copy the generated Token, it will be something like 
+	ghp_sFhFsSHhTzMDreGRLjmks4Tzuzgthdvfsrta
+
+
+For a Linux-based OS
+--------------------
+
+    For Linux, you need to configure the local GIT client with a username and email address,
+
+    $ git config --global user.name "your_github_username"
+    $ git config --global user.email "your_github_email"
+    $ git config -l
+
+    Once GIT is configured, we can begin using it to access GitHub. Example:
+
+    $ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
+    > Cloning into `YOUR-REPOSITORY`...
+    Username: <type your username>
+    Password: <type your password or personal access token (GitHub)>
+
+    Now cache the given record in your computer to remembers the token:
+
+    $ git config --global credential.helper cache
+
+    If needed, anytime you can delete the cache record by:
+
+    $ git config --global --unset credential.helper
+    $ git config --system --unset credential.helper
+
+    Now try to pull with -v to verify
+
+    $ git pull -v
+
+
+
+Linux/Debian (Clone as follows):
+
+    git clone https://<tokenhere>@github.com/<username>/<repo>.git
+
+
+Then set the token:
+    
+    git remote set-url origin https://<token>@github.com/<username>/<repo>.git/
+
+
+2. Using SSH Authentication
+###########################
+
+- Open terminal in VM. go to user /home/<user>/.ssh and create ssh keys using below command
+	ssh-keygen -t ed25519 -C "pavankumar.adapala.msc@gmail.com" -f /home/pavan-kumar/.ssh/pavan-kumar	
+
+- Copy public key (.pub) from the VM
+
+- Go github account. open settings -> click on SSH and GPG keys -> click on new key -> paste the coped public key information
+
+- Test it using below command
+	ssh -T git@github.com
+
+- Add remote repo
+
+	git remote add origin <ssh URL link>
+
+all done
