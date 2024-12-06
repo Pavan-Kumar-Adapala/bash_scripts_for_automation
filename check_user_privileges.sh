@@ -7,7 +7,7 @@ echo "The shell interepreter ${SHELL}."
 
 [ "$(id -u)" -eq 0 ] && echo "${USER} is Root User." || echo "${USER} is Non-root User."
 
-sudo -n true 2>/dev/null && echo "${USER} has root privileges." || echo "${USER} doesn\'t have root privileges."
+sudo -n true 2>/dev/null && echo "${USER} has root privileges." || echo -e "${USER} doesn\'t have root privileges."
 
 # Simple way to check the sudo privileges of the user
 sudo -l
