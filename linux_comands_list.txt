@@ -1,0 +1,143 @@
+list of Linux commands for DevOps engineers:
+
+File and Directory Management
+- ls - List directory contents
+- cd - Change directory
+- pwd - Print working directory
+- mkdir - Create directories
+- rmdir - Remove empty directories
+- cp - Copy files and directories
+- mv - Move/rename files and directories
+- rm - Remove files and directories
+- find - Search for files in a directory hierarchy
+- locate - Locate a file by name
+- tree - Display directories as a tree structure
+
+File Manipulation
+- cat - View file contents
+- more / less - View file contents one page at a time
+- head / tail - View the beginning/end of a file
+- touch - Create an empty file
+- nano / vim / emacs - Text editors
+- grep - Search for text patterns in files
+- awk - Text processing and data extraction
+- sed - Stream editor for text manipulation
+- cut - Remove sections from a file
+- sort - Sort lines in a file
+- uniq - Find unique lines
+- wc - Word, line, character count in a file
+- diff - Compare two files line by line
+
+
+Permissions and Ownership
+- chmod - Change file permissions
+- chown - Change file ownership
+- chgrp - Change group ownership
+- umask - Set default permissions
+
+
+Process Management
+- ps - Display active processes
+- top / htop - Monitor running processes in real-time
+- kill - Terminate processes by PID
+- killall - Terminate processes by name
+- bg / fg - Move processes between foreground and background
+- jobs - List active background processes
+- nice / renice - Adjust process priority
+
+
+Networking
+- ping - Check network connectivity
+- curl - Transfer data from or to a server
+- wget - Download files from the web
+- ssh - Secure shell for remote login
+- scp - Securely copy files between systems
+- rsync - Synchronize files/directories across systems
+- netstat / ss - Display network connections
+- ifconfig / ip - Network interface configuration
+- traceroute - Trace the route to a network host
+- nslookup / dig - DNS lookup
+- telnet / nc (netcat) - Test network connectivity
+
+
+Disk and Filesystem
+- df - Display disk space usage
+- du - Display directory space usage
+- mount / umount - Mount/Unmount filesystems
+- lsblk - List information about block devices
+- blkid - Locate/print block device attributes
+- fsck - Check filesystem consistency
+- mkfs - Create a filesystem
+- tune2fs - Adjust filesystem parameters
+- fdisk / parted - Manage disk partitions
+
+
+System Monitoring
+- uptime - System uptime
+- free - Memory usage
+- vmstat - System performance
+- iostat - CPU and I/O statistics
+- sar - System activity report
+- dstat - System resource statistics
+- iotop - Monitor disk I/O
+- lsof - List open files
+- who / w - Show logged-in users
+
+
+
+Package Management
+- Debian-based systems (Ubuntu):
+  - apt / apt-get / dpkg
+- ed Hat-based systems (CentOS, Fedora):
+  - yum / dnf / rpm
+- snap - Manage snap packages
+- pip - Manage Python packages
+
+
+
+Archiving and Compression
+- tar - Archive files
+- zip / unzip - Compress/Extract ZIP files
+- gzip / gunzip - Compress/Extract GZIP files
+- xz / unxz - Compress/Extract XZ files
+- 7z - Work with 7-Zip files
+
+---
+
+User Management
+- whoami - Current logged-in user
+- id - Display user ID and group ID
+- adduser / useradd - Add a new user
+- passwd - Change user password
+- deluser / userdel - Delete a user
+- usermod - Modify user account
+- groups - Display group membership
+- groupadd - Add a new group
+- sudo - Execute commands as another user
+
+
+
+Scheduling and Automation
+- crontab - Schedule recurring tasks
+- at - Schedule one-time tasks
+- systemctl / service - Manage system services
+- nohup - Run a command immune to hangups
+- screen / tmux - Terminal multiplexer
+
+
+
+Logs and Troubleshooting
+- journalctl - Query system logs
+- dmesg - Kernel messages
+- tail -f - Monitor logs in real-time
+- /var/log/ - Check system logs directory
+
+
+
+Security
+- firewalld / ufw - Manage firewalls
+- iptables - Packet filtering rules
+- ssh-keygen - Generate SSH keys
+- fail2ban - Protect against brute force attacks
+- gpg - Encrypt/Decrypt files
+
