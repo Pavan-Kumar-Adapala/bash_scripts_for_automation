@@ -1,0 +1,107 @@
+To send an email from your newly created Ubuntu machine in VMware to your Gmail account, you need to set up an SMTP client on your Ubuntu machine. Here's a step-by-step guide:
+
+
+Steps to Configure and Send Email
+##################################
+
+1. Update and Install Necessary Packages
+Run the following commands to ensure your Ubuntu system is updated and required tools are installed:
+
+In bash terminal
+----------------
+	sudo apt update
+	sudo apt install -y postfix mailutils
+
+
+	- **Postfix**: A mail transfer agent (MTA) that sends and routes emails.
+	- **Mailutils**: Provides the `mail` command for sending emails.
+
+
+2. Configure Postfix
+During installation, you'll be prompted to configure Postfix. If not, you can run the configuration command manually:
+
+In bash terminal
+----------------
+	sudo dpkg-reconfigure postfix
+
+	Choose the following options:
+		1. **General type of mail configuration**: Select **Internet Site**.
+		2. **System mail name**: Enter your Ubuntu hostname (e.g., `ubuntu.local`).
+		3. Accept default settings for other prompts.
+
+	Reason: Postfix acts as an intermediary to relay the email to Gmail's SMTP server.
+
+3. Enable Sending Emails via Gmail SMTP
+Gmail requires authentication, so you need to configure Postfix to relay emails through Gmail's SMTP server.
+
+Edit the Postfix configuration file:
+
+	In bash terminal
+	----------------
+		sudo nano /etc/postfix/main.cf
+
+
+		Add the following lines at the end of the file:
+
+		# plaintext
+		relayhost = [smtp.gmail.com]:587
+		smtp_use_tls = yes
+		smtp_sasl_auth_enable = yes
+		smtp_sasl_password_maps = hash:/etc/postfix/sasl_passwd
+		smtp_sasl_security_options = noanonymous
+
+	Reason: These settings enable Postfix to relay emails via Gmail's secure SMTP server using authentication.
+
+
+4. Configure Gmail Authentication
+Create a file to store your Gmail credentials:
+
+	In bash terminal
+	----------------
+		sudo nano /etc/postfix/sasl_passwd
+
+	Add the following line, replacing `your_email@gmail.com` and `your_password` with your Gmail address and app password:
+
+		# plaintext
+		[smtp.gmail.com]:587 your_email@gmail.com:your_password
+
+	Important: Gmail requires an **App Password** if you have 2FA enabled. Generate an app password from your Google account security settings.
+
+5. Secure the Authentication File
+Set appropriate permissions to ensure the file is secure:
+
+	In bash Terminal
+	----------------
+		sudo chmod 600 /etc/postfix/sasl_passwd
+		sudo postmap /etc/postfix/sasl_passwd
+
+	Reason: Prevent unauthorized access to your credentials.
+
+
+6. Restart Postfix
+Restart the Postfix service to apply the changes:
+
+	In bash Terminal
+	----------------
+	sudo systemctl restart postfix
+
+7. Send a Test Email
+Use the `mail` command to send an email:
+
+	In bash Terminal
+	----------------
+		echo "Test email from Ubuntu VM" | mail -s "Test Email" your_email@gmail.com
+
+8. Check Mail Logs
+If the email does not arrive, check the logs for troubleshooting:
+
+	In bash Terminal
+	----------------
+		sudo tail -f /var/log/mail.log
+
+Why This Setup is Necessary
+1. Postfix: Sends and relays emails from your Ubuntu system.
+2. Gmail SMTP: Gmail acts as a relay server to ensure emails reach external recipients.
+3. TLS and Authentication: Securely transmits your email and verifies your identity.
+4. App Password: Enhances security while allowing external apps to access Gmail.
+
