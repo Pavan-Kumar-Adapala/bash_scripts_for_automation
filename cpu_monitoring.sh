@@ -1,7 +1,7 @@
 #!/bin/bash
 
 read -p "Enter the threshold value: " THRESHOLD
-TO_EMAIL="adapalapavan5@gmail.com"
+TO_EMAIL="xxxxx@gmail.com"
 
 while true
 do
