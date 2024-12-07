@@ -54,7 +54,7 @@ fi
 # Send email notification if secuirty updates available
 if [ -n "${UPDATE_INFO}" ]
 then
-	echo "${UPDATE_INFO}" | mailx -s "${SUBJECT}" "${EMAIL}"
+	echo "${UPDATE_INFO}" | mail -s "${SUBJECT}" "${EMAIL}"
 	echo "Security updates found, email sent."
 else
 	echo "No security updates found."
