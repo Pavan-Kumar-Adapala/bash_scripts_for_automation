@@ -39,3 +39,7 @@ else
     # No files found
     echo "No files older than $retention_days days exist in $log_dir."
 fi
+
+
+# "logrotate" is usually configured through a global configuration file (/etc/logrotate.conf) and individual configuration files for services in /etc/logrotate.d/.
+# It processes logs based on rules defined in these configuration files, such as when to rotate, how many backups to keep, and whether to compress the old logs.
