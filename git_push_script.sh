@@ -110,6 +110,7 @@ fi
 
 # Prompt for confirmation
 read -p "Do you want to push these changes to GitHub? (y/n): " confirm_push
+read -p "Enter branch name to push (ex: feature branch1): " branch_name
 if [[ "${confirm_push,,}" == "y" ]]
 then
 	git add . # Adding all modified files to staging area
@@ -122,7 +123,7 @@ then
 		# Push changes
 		# git push --set-upstream origin master
 		# echo "$(git branch)" 
-		git push origin master
+		git push origin ${branch_name}
 		if [[ $? -eq 0 ]]
 		then
 			echo "Changes pushed to GitHub."
