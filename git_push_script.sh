@@ -69,7 +69,7 @@ then
 	then
 		git init
 	else
-		echo "Aborting push. This directory is not a git repository."
+		echo "Aborting push, This directory is not a git repository."
 		exit 1
 	fi
 fi
