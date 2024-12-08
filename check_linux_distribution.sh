@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Check and fetch OS name
-function check_fetch_distribution_name () {
+function check_fetch_distribution_name() {
         if [[ -e /etc/os-release ]]
         then
                 . /etc/os-release
