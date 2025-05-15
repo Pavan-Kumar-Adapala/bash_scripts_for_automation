@@ -35,7 +35,7 @@ As a DevOps Engineer, you often deal with various tools, technologies, and frame
 5. **Rapid Troubleshooting and Incident Management:**  
    When a problem occurs in production, DevOps teams need to act quickly. These scripts enable rapid identification of issues (e.g., CPU usage spikes, missing files, or application errors). By automating the monitoring and alerting process, DevOps engineers can focus on solving issues rather than hunting them down manually.
 
-#### List of Scripts in the Repository (in Master branch)
+#### List of Scripts in the Repository 
 
 - **check_application_errors.sh**: Monitors and identifies application-specific errors, crucial for tracking and resolving production issues.
 - **check_files_diff.sh**: Compares two files for differences, ensuring configuration integrity across systems.
